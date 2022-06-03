@@ -1,0 +1,38 @@
+
+<div class="container flex justify-center mx-auto">
+    <div class="flex flex-col">
+        <div class="w-full">
+        <h1>Liste des utilisateurs</h1>
+      <div class="border-b border-gray-200 shadow">
+        <table class="bg-gray-50">
+          <thead>
+            <tr>
+              <th class="px-6 py-2 text-xs text-gray-500">ID</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Niveau</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Pseudo</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Email</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Avatar</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userList">
+              <td class="text-sm text-gray-900">{{ user.id }}</td>
+              <td class="text-sm text-gray-900">{{ user.niveau }}</td>
+              <td class="text-sm text-gray-900">{{ user.pseudo }}</td>
+              <td class="text-sm text-gray-900">{{ user.email }}</td>
+              <td class="text-sm text-gray-900">
+                <img *ngIf="user.avatar.length != 0" src="{{ user.avatar }}" alt="" style="height: 150px; width: 150px;"/>
+              </td>
+              <td class="text-sm text-gray-900">
+                <div [routerLink]="['/user', user.id]">Voir le profile</div>
+                <button *ngIf="loginService.isUserOwner(user.id)"  (click)="onClickDelete(user.id)">Supprimer l'utilisateur</button>
+                <div  *ngIf="loginService.isUserOwner(user.id)"  [routerLink]="['/user/update', user.id]">Modifier le profile</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

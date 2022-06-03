@@ -1,0 +1,15 @@
+<h1>Modifier l'article</h1>
+<div class="container flex justify-center mx-auto">
+    <div class="flex flex-col w-full text-center pt-5">
+        <div class="w-full">
+            <h1>Modifier l'article</h1>
+            <div class="border-b border-gray-200 shadow  min-h-screen w-full">
+                <form [formGroup]="connectForm" (ngSubmit)="submitForm()">
+                    <input type="text" placeholder="Titre" formControlName="titre">
+                    <textarea type="text" placeholder="Contenu" formControlName="contenu"> </textarea>
+                    <input type="submit" value="Envoyer">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

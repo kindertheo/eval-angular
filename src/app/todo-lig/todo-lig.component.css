@@ -1,0 +1,9 @@
+li {
+    padding: 5px 20px;
+    font-weight: bold;
+}
+
+li.paire {
+    background-color: lightblue;
+
+}

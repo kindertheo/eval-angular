@@ -1,0 +1,60 @@
+<!-- Navbar goes here -->
+<nav class="bg-white shadow-lg">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+      <div class="flex space-x-7">
+        <!-- Website Logo -->
+        <div>
+          <a href="#" class="flex items-center py-4 px-2">
+            <span class="font-semibold text-gray-500 text-lg">CoursAngular</span>
+          </a>
+        </div>
+        <!-- Primary Navbar items -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a
+            routerLink=""
+            routerLinkActive="router-link-active"
+            class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+            >Home</a
+          >
+          <a *ngIf="!isLogged()"
+            routerLink="user/login"
+            routerLinkActive="router-link-active"
+            class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+            >Login</a
+          >
+          <a *ngIf="!isLogged()"
+            routerLink="user/register"
+            routerLinkActive="router-link-active"
+            class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+            >Register</a
+          >
+          <a
+            routerLink="user/list"
+            routerLinkActive="router-link-active"
+            class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+            >Liste des utilisateurs</a
+          >
+          <a
+            routerLink="article"
+            routerLinkActive="router-link-active"
+            class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+            >Liste des articles</a
+          >
+          <a 
+          routerLink="comment"
+          routerLinkActive="router-link-active"
+          class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+          >Liste des commentaires</a
+          >
+          <a *ngIf="isLogged()"
+          routerLink="user/logout"
+          routerLinkActive="router-link-active"
+          class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"
+          >Se déconnecter</a
+          >          
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

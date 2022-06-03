@@ -1,0 +1,38 @@
+
+<div class="container flex justify-center mx-auto">
+    <div class="flex flex-col">
+        <div class="w-full">
+            <h1>Liste des articles</h1>
+      <div class="border-b border-gray-200 shadow">
+        <button [routerLink]="['/article/create']">Créer un article</button>
+        <table class="bg-gray-50">
+          <thead>
+            <tr>
+              <th class="px-6 py-2 text-xs text-gray-500">ID</th>
+              <th class="px-6 py-2 text-xs text-gray-500">ID du créateur</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Titre</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Contenu</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Date de création</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let article of articleList">
+              <td class="text-sm text-gray-900">{{ article.id_article }}</td>
+              <td class="text-sm text-gray-900">{{ article.id }}</td>
+              <td class="text-sm text-gray-900">{{ article.titre }}</td>
+              <td class="text-sm text-gray-900">{{ article.contenu | limitPipe: 15 }}...</td>
+              <td class="text-sm text-gray-900">{{ article.creation | date: 'dd/MM/yyyy'}}</td>
+              <td class="text-sm text-gray-900">
+                <a [routerLink]="['/article', article.id_article]">Voir l'article</a>
+                <a [routerLink]="['/user', article.id]">Voir le profile</a>
+                <button *ngIf="loginService.isUserOwner(article.id)" (click)="onClickDelete(article.id_article)">Supprimer l'article</button>
+                <a *ngIf="loginService.isUserOwner(article.id)" [routerLink]="['update', article.id_article]">Modifier l'article</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

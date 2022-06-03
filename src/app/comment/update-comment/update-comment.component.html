@@ -1,0 +1,14 @@
+<div class="container flex justify-center mx-auto">
+    <div class="flex flex-col w-full text-center pt-5">
+        <div class="w-full">
+            <h1>Modifier le commentaire</h1>
+            <div class="border-b border-gray-200 shadow  min-h-screen w-full">
+                <form [formGroup]="connectForm" (ngSubmit)="submitForm()">
+                    <textarea type="number" placeholder="Contenu" formControlName="contenu"></textarea>
+                    <input type="text" placeholder="Date de création" formControlName="creation">
+                    <input type="submit" value="Envoyer">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

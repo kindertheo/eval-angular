@@ -1,0 +1,17 @@
+<div class="container flex justify-center mx-auto">
+    <div class="flex flex-col w-full text-center pt-5">
+        <div class="w-full">
+            <h1>Modifier l'utilisateur</h1>
+            <div class="border-b border-gray-200 shadow  min-h-screen w-full">
+                <form [formGroup]="connectForm" (ngSubmit)="submitForm()">
+                    <input type="number" placeholder="Niveau" formControlName="niveau">
+                    <input type="text" placeholder="Pseudo" formControlName="pseudo">
+                    <input type="text" placeholder="Email" formControlName="email">
+                    <input type="password" placeholder="Password" formControlName="password">
+                    <input type="text" placeholder="Avatar url" formControlName="avatar">
+                    <input type="submit" value="Envoyer">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

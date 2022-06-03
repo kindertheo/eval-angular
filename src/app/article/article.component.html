@@ -1,0 +1,16 @@
+
+<div class="container flex justify-center mx-auto">
+    <div class="flex flex-col w-full text-center pt-5">
+      <button [routerLink]="['/comment/create', article.id_article]">Créer un commentaire</button>
+        <div class="w-full">
+            <h1>Article n° {{article.id_article}} </h1>
+      <div class="border-b border-gray-200 shadow  min-h-screen w-full">
+        <p class="p-3"> Contenu : <br> {{ article.contenu }}</p>
+        <p class="p-3"> Date : <br> {{ article.creation | date: 'dd/MM/yyyy'}}</p>
+        <p class="p-3"> ID de l'utilisateur :  {{ article.id }}</p>
+      </div>
+      <button [routerLink]="['/comment/create', article.id_article]">Créer un commentaire</button>
+      <a *ngIf="loginService.isUserOwner(article.id)" [routerLink]="['update', article.id_article]">Modifier l'article</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<section>
+    <h2>Mes taches</h2>
+    <ul>
+        <app-todo-lig *ngFor="let tache of taches" [contenu]="tache" [paire]="getPaire()"></app-todo-lig>
+    </ul>
+    <div class="form">
+        <input type="text" [(ngModel)]="tacheEnCour">
+        <p>{{ tacheEnCour | countChar }}</p>
+        <button (click)="ajoutTache()" appBtnRouge>Valider</button>
+    </div>
+</section>

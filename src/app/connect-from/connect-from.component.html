@@ -1,0 +1,9 @@
+<section>
+    <form [formGroup]="connectForm" (ngSubmit)="submitForm()">
+        <input type="text" placeholder="Nom" formControlName="prenom">
+        <input type="text" placeholder="Prénom" formControlName="nom">
+        <input type="email" placeholder="Email" formControlName="email">
+        <input type="text" placeholder="Téléphone" formControlName="telephone">
+        <input type="submit" value="Envoyer">
+    </form>
+</section>

@@ -1,0 +1,36 @@
+
+<div class="container flex justify-center mx-auto">
+    <div class="flex flex-col">
+        <div class="w-full">
+            <h1>Liste des commentaires</h1>
+      <div class="border-b border-gray-200 shadow">
+        <table class="bg-gray-50">
+          <thead>
+            <tr>
+              <th class="px-6 py-2 text-xs text-gray-500">ID</th>
+              <th class="px-6 py-2 text-xs text-gray-500">ID du créateur</th>
+              <th class="px-6 py-2 text-xs text-gray-500">ID de l'article</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Contenu</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Date de création</th>
+              <th class="px-6 py-2 text-xs text-gray-500">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let comment of commentList">
+              <td class="text-sm text-gray-900">{{ comment.id_commentaire }}</td>
+              <td class="text-sm text-gray-900">{{ comment.id }}</td>
+              <td class="text-sm text-gray-900">{{ comment.id_article }}</td>
+              <td class="text-sm text-gray-900">{{ comment.contenu | limitPipe: 15 }}...</td>
+              <td class="text-sm text-gray-900">{{ comment.creation | date: 'dd/MM/yyyy'}}</td>
+              <td class="text-sm text-gray-900">
+                <a [routerLink]="['/comment', comment.id_commentaire]">Voir le profile</a>
+                <button *ngIf="loginService.isUserOwner(comment.id)"  (click)="onClickDelete(comment.id_commentaire)">Supprimer le commentaire</button>
+                <a *ngIf="loginService.isUserOwner(comment.id)"  [routerLink]="['/comment/update', comment.id_commentaire]">Modifier le commentaire</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
